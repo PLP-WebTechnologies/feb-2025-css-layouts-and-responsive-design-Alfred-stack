@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Flexbox/Grid Layout</title>
+    <!--Using Internal CSS-->>
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Navigation - Flexbox */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #2c3e50;
+            padding: 1rem 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Main Layout - CSS Grid */
+        .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            padding: 2rem;
+            min-height: 80vh;
+        }
+
+        .card {
+            background: #ecf0f1;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Media Queries */
+        @media (min-width: 768px) {
+            /* Tablet Layout */
+            .container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .navbar {
+                padding: 1.5rem 4rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            /* Desktop Layout */
+            .container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .nav-links {
+                gap: 4rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            /* Mobile Layout */
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <h2>Logo</h2>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="card">
+            <h3>Card 1</h3>
+            <p>Sample text is meant to be written here for Card 1.</p>
+        </div>
+        <div class="card">
+            <h3>Card 2</h3>
+            <p>Sample text is meant to be written here for Card 2 but since there is no text we might as well use this dummy text.</p>
+        </div>
+        <div class="card">
+            <h3>Card 3</h3>
+            <p>Sample text is meant to be written here for Card 2 but since there is no text we might as well use this dummy text.</p>
+        </div>
+    </div>
+</body>
+</html>
